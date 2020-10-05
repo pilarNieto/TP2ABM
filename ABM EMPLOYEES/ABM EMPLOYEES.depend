@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1601893929 source:c:\users\admin\desktop\abm tp2\abm employees\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+
+1601893929 c:\users\admin\desktop\abm tp2\abm employees\arrayemployees.h
+	"fecha.h"
+
+1601893929 c:\users\admin\desktop\abm tp2\abm employees\fecha.h
+
+1601893659 source:c:\users\admin\desktop\abm tp2\abm employees\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+

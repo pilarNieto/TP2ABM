@@ -9,4 +9,5 @@ typedef struct
 
 
 #endif // FECHA_H_INCLUDED
+
 void showNewDate(eDate date);

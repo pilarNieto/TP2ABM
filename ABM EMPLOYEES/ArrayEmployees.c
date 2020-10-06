@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "showMenu.h"
+#include "utn.h"
 #include "ArrayEmployees.h"
 
 void printEmployee(eEmployee user)
@@ -48,7 +50,7 @@ int printEmployees(eEmployee user[], int quantity)
     return error;
 }//
 
-int initializeEmployee(eEmployee user[], int quantity)
+int initEmployee(eEmployee user[], int quantity)
 {
     int error = 1;
     if (user!=NULL && quantity > 0)
@@ -62,7 +64,7 @@ int initializeEmployee(eEmployee user[], int quantity)
     return error;
 }
 
-int initEmployee(eEmployee user[], int quantity)//CUMPLE LA FUNCIÓN DE BUSCAR UN CAMPO VACIO
+int searchFree(eEmployee user[], int quantity)//CUMPLE LA FUNCIÓN DE BUSCAR UN CAMPO VACIO
 {
     int index = -1;// DEVUELVE MENOS UNO SI EL VECTOR ESTÁ LLENO
     for(int i = 0; i<quantity; i++)
@@ -80,6 +82,7 @@ int initEmployee(eEmployee user[], int quantity)//CUMPLE LA FUNCIÓN DE BUSCAR UN
 
 int addEmployee(eEmployee user[], int quantity, int id)
 {
+
     system("cls");
     printf("=====================================================\n");
     printf("                     ALTA  EMPLEADOS                 \n");
@@ -92,7 +95,7 @@ int addEmployee(eEmployee user[], int quantity, int id)
 
     if (user!=NULL && quantity > 0 && id >0)
     {
-        index = initEmployee(user, quantity);
+        index = searchFree(user, quantity);
         if(index == -1)
         {
             printf("No es posible ingresar más usuarios, el sistema esta completo.\n");
@@ -102,23 +105,15 @@ int addEmployee(eEmployee user[], int quantity, int id)
             newEmployee.id = id;
             newEmployee.isEmpty = 0;
 
-            printf("Ingrese el nombre del empleado: ");
-            fflush(stdin);
-            gets(newEmployee.name);
+            utn_getNombre(newEmployee.name, 20, "\nIngrese el nombre del empleado:\n", "\n*Error reingrese el nombre*", 3);
 
-            printf("Ingrese el apellido del empleado: ");
-            fflush(stdin);
-            gets(newEmployee.lastName);
+            utn_getNombre(newEmployee.lastName,20, "\nIngrese el apellido del empleado:\n", "\n*Error reingrese el nombre*", 3);
 
-            printf("Ingrese el salario del empleado: ");
-            scanf("%f", &newEmployee.salary);
+            utn_getNumeroFlotante(&newEmployee.salary,"\nIngrese el salario del empleado:\n","\n*Error reingrese el salario*",0,9999999999,3);
 
-            printf("Ingrese la opción del sector al que pertenece el empleado: \n ");
-            printf("   [1]. Gerencia.\n");
-            printf("    [2]. \nRecursos Humanos.\n");
-            printf("    [3]. \nSistemas.\n");
-            printf("    [4]. \nServicios Generales.\n");
-            scanf("%d", &newEmployee.sector);
+            showMenuSector();
+            utn_getNumero(&newEmployee.sector, "\nIngrese la opción del sector al que pertenece el empleado:\n","\n*Error, sector invalido Reingrese*", 0, 6, 3);
+            showMenuSector();
 
             printf("Ingrese fecha de ingreso al sistema dd/mm/aa\n");
             scanf("%d/%d/%d", &newEmployee.birthDay.day, &newEmployee.birthDay.month, &newEmployee.birthDay.year);
@@ -223,7 +218,7 @@ int modifyEmployee(eEmployee user[], int quantity)
         {
             printEmployee(user[index]);
 
-            printf("Ingrese la opcion del item que desea modificar\n");
+          printf("Ingrese la opcion del item que desea modificar\n");
             int option;
             printf("    1. Nombre.\n");
             printf("    2. Apellido.\n");
@@ -361,9 +356,3 @@ int informationSalary(eEmployee user[], int quantity)
 
     return error;
 }
-
-/*void showNewDate(eDate date)
-{
-    printf("%02d/%02d%02d", date.day, date.month, date.year);
-}*/
-

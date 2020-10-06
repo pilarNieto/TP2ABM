@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "utn.h"
 #include "ArrayEmployees.h"
 
 #define ASC 1
@@ -9,6 +10,7 @@
 #define TAM 1000
 
 int showMenu();
+int showMenuSector();
 int main()
 {
     char seguir = 's';
@@ -17,7 +19,7 @@ int main()
     int answer;
     eEmployee list[TAM];
 
-    if(initializeEmployee(list, TAM)==0)
+    if(initEmployee(list, TAM)==0)
     {
         printf("Personas inicializadas con exito!\n");
     }
@@ -118,24 +120,3 @@ int main()
 
 }
 
-int showMenu()
-{
-    int option;
-    system("cls");
-    printf("=====================================================\n");
-    printf("    ALTA  ,  BAJA   Y   MODIFICACION  DE  EMPLEADOS  \n");
-    printf("=====================================================\n");
-    printf(" >>>> Ingrese el la opcion que desea realizar: \n\n");
-    printf("    1. Ingresar nuevo empleado.\n");
-    printf("    2. Eliminar empleado de lista activa.\n");
-    printf("    3. Modificar datos del empleado.\n");
-    printf("    4. Mostrar Listado de empleados.\n");
-    printf("    5. Ordenar empleados.\n");
-    printf("    6. Informes\n");
-    printf("    7. Salir\n\n");
-    printf("Ingrese opcion: ");
-    scanf("%d", &option);
-
-
-    return option;
-}

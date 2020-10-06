@@ -343,8 +343,11 @@ int informationSalary(eEmployee user[], int quantity)
         if (user[i].salary > average)
         {
             higherAverageSalary++;
-        }error = 0;
+        }
+
     }
+
+    if()
     system("cls");
     printf("====================================================================\n");
     printf("                        INFORME DE SALARIOS                          \n");

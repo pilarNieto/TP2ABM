@@ -31,9 +31,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="ArrayEmployees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ArrayEmployees.h" />
+		<Unit filename="fecha.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fecha.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="showMenu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="showMenu.h" />
+		<Unit filename="utn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utn.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
